@@ -122,13 +122,32 @@ const assert = require("assert");
 module.exports = function() {
   rules.push({
     _name: `extract-css${cssModuleSupport ? "-modules" : ""}`,
-    test: /\.css$/,
+    test: /(?<!\.global)\.css$/,
     use: ExtractTextPlugin.extract({
       fallback: styleLoader,
       use: cssModuleSupport ? [cssModuleQuery, postcssQuery] : [cssQuery, postcssQuery],
       publicPath: ""
     })
   });
+
+  //(?<!\.global)\.css # regex to identify .css it will exclude .global.css
+  // \.global\.css  # regex to identify .global.css
+
+  /*
+    Introducing a hack here to include global styles. Name the global styles as .global.css and import. However, remember this is not a good practice.
+    Using CSS modules is preferred!, But if there are modules that you would need, that need you to import global CSS. This mod will help you do that!
+  */
+  if(cssModuleSupport) {
+    rules.push({
+      _name: `extract-css`,
+      test: /\.global\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: styleLoader,
+        use: [cssQuery, postcssQuery],
+        publicPath: ""
+      })
+    });
+  }
 
   if (sassSupport) {
     rules.push({

@@ -27,11 +27,11 @@
     "yeoman-test": "1.8.0"
   },
   "bugs": {
-    "url": "https://github.com/electrode-io/electrode/issues"
+    "url": "https://github.com/bhrgv-bolla/electrode/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/electrode-io/electrode.git"
+    "url": "https://github.com/bhrgv-bolla/electrode.git"
   },
   "engines": {
     "node": ">= 6",
