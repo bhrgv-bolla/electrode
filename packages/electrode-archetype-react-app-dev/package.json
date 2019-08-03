@@ -1,7 +1,7 @@
 {
-  "name": "electrode-archetype-react-app-dev",
+  "name": "@bhargav018/electrode-archetype-react-app-dev",
   "version": "6.5.8",
-  "description": "Electrode NodeJS/React Application Archetype (Development)",
+  "description": "Fork of Electrode NodeJS/React Application Archetype (Development)",
   "homepage": "http://www.electrode.io",
   "repository": {
     "type": "git",
